@@ -1,6 +1,7 @@
 .PHONEY: echo clean build repl shell push
 
-TAG=ubuntu19.10-janet-1.1.0
+TAG=ubuntu19.10-janet-1.2.0
+ID=1001
 
 echo:
 	@ echo "TAG IS" $(TAG)
@@ -9,7 +10,11 @@ clean:
 	rm -f *~
 
 build:
-	docker build --build-arg USER=`whoami` -t sleepyfox/janet:$(TAG) .
+	docker build \
+	--build-arg USER=`whoami` \
+	--build-arg UID=$(ID) \
+	--build-arg GID=$(ID) \
+	-t sleepyfox/janet:$(TAG) .
 
 repl:
 	docker run -it -p 8080:8080 sleepyfox/janet:$(TAG) janet

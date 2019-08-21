@@ -13,18 +13,18 @@ RUN useradd -g $GID -M -u $UID -d /var/app $USER
 RUN mkdir -p /usr/local/include/janet \
     mkdir -p /usr/local/lib/janet \
     mkdir -p /usr/local/share/man/man1
-COPY janet-1.1.0/build/janet /usr/local/bin/janet
-COPY janet-1.1.0/src/include/janet.h /usr/local/include/janet
-COPY janet-1.1.0/src/conf/janetconf.h /usr/local/include/janet
-COPY janet-1.1.0/build/libjanet.a /usr/local/lib/libjanet.a
-COPY janet-1.1.0/build/libjanet.so /usr/local/lib/libjanet.so.1.1.0-dev
-COPY janet-1.1.0/build/libjanet.so /usr/local/lib/libjanet.so
-COPY janet-1.1.0/build/libjanet.so /usr/local/lib/libjanet.so.1
+COPY janet/build/janet /usr/local/bin/janet
+COPY janet/src/include/janet.h /usr/local/include/janet
+COPY janet/src/conf/janetconf.h /usr/local/include/janet
+COPY janet/build/libjanet.a /usr/local/lib/libjanet.a
+COPY janet/build/libjanet.so /usr/local/lib/libjanet.so.1.1.0-dev
+COPY janet/build/libjanet.so /usr/local/lib/libjanet.so
+COPY janet/build/libjanet.so /usr/local/lib/libjanet.so.1
 # cook and path
-COPY janet-1.1.0/auxlib /usr/local/lib/janet
+COPY janet/auxlib /usr/local/lib/janet
 # jpm
-COPY janet-1.1.0/auxbin /usr/local/bin
-COPY janet-1.1.0/janet.1 /usr/local/share/man/man1/
+COPY janet/auxbin /usr/local/bin
+COPY janet/janet.1 /usr/local/share/man/man1/
 RUN ldconfig /usr/local/lib
 
 # Application setup

@@ -1,7 +1,8 @@
 .PHONEY: echo clean build repl shell push
 
-TAG=ubuntu19.10-janet-1.2.0
 ID=1001
+JANET_VERSION=1.2.0
+TAG=ubuntu19.10-janet-$(JANET_VERSION)
 
 echo:
 	@ echo "TAG IS" $(TAG)
@@ -10,6 +11,8 @@ clean:
 	rm -f *~
 
 build:
+	git clone --branch v$(JANET_VERSION) git@github.com:janet-lang/janet.git
+	make -C ./janet
 	docker build \
 	--build-arg USER=`whoami` \
 	--build-arg UID=$(ID) \

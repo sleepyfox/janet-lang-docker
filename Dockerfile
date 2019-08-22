@@ -9,6 +9,7 @@ RUN cd /tmp && \
     cd janet && \
     make all test install && \
     rm -rf /tmp/janet
+RUN chmod 777 /usr/local/lib/janet
 
 # Set group and user IDs for docker user
 ARG GID=1000

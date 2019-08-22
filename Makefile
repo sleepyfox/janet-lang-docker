@@ -1,6 +1,6 @@
 .PHONEY: echo clean build repl shell push
 
-TAG=ubuntu19.10-janet-1.2.0
+TAG=ubuntu19.10-janet-1.2.0-dev2
 ID=1001
 
 echo:

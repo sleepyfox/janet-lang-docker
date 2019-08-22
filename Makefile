@@ -17,10 +17,10 @@ build:
 	-t sleepyfox/janet:$(TAG) .
 
 repl:
-	docker run -it -p 8080:8080 sleepyfox/janet:$(TAG) janet
+	docker run -it -p 8000:8000 sleepyfox/janet:$(TAG) janet
 
 shell:
-	docker run -it -p 8080:8080 sleepyfox/janet:$(TAG) bash
+	docker run -it -p 8000:8000 sleepyfox/janet:$(TAG) bash
 
 push:
 	docker push sleepyfox/janet:$(TAG)

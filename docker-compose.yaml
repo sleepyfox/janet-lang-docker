@@ -1,7 +1,10 @@
 version: '3.8'
 services:
   repl:
-    build: .
-  bash:
-    build: .
-    command: ['bash']
+    build:
+      dockerfile: repl.Dockerfile
+  server:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"

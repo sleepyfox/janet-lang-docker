@@ -11,3 +11,4 @@ Run bash:
 ## Attributions
 
 Thanks [sleepyfox](https://github.com/sleepyfox) for the basic Dockerfile.
+Thanks [joy-framework](https://github.com/joy-framework) for inspiration for additional Dockerfile changes.

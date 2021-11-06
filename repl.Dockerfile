@@ -22,9 +22,5 @@ COPY ./project.janet .
 RUN jpm deps &&  chown -R $USER:$GROUP /usr/local/lib/janet/joy
 COPY ./src src
 COPY ./test test
-RUN jpm build && jpm test
-FROM docker.io/alpine:3.11
-COPY --from=build /var/app/build/myexec /opt/myexec
-WORKDIR /opt
 USER $USER
-CMD ["./myexec"]
+CMD ["janet"]

@@ -1,5 +1,4 @@
-FROM ubuntu:19.10
-
+FROM ubuntu:22.04
 # Install make
 RUN apt -q update && apt install -yq make gcc git curl
 
@@ -18,9 +17,10 @@ ARG USER=me
 
 # Create the group and user
 RUN groupadd -g $GID $USER
-RUN useradd -g $GID -M -u $UID -d /var/app $USER 
+RUN useradd -g $GID -M -u $UID -d /var/app $USER
 
 # Application setup
 WORKDIR /var/app
 RUN chmod 777 /var/app
 USER $USER
+CMD ["janet"]

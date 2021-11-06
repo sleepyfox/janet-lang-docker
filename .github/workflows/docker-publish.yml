@@ -59,7 +59,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "main"
+          tags: "${{ steps.meta.outputs.tags }}-server"
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push Docker repl image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -67,5 +67,5 @@ jobs:
           context: .
           file: repl.Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "repl"
+          tags: "${{ steps.meta.outputs.tags }}-repl"
           labels: ${{ steps.meta.outputs.labels }}
